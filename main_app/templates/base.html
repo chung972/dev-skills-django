@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Dev Skills</title>
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <div class="blue nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}" class="left brand-logo">Dev Skills</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <!-- refactor these links to change dynamically based on authentication state -->
+                    <li>
+                        <a href="">Login</a>
+                    </li>
+                    <li>
+                        <a href="">Logout</a>
+                    </li>
+                    <li>
+                        <a href="">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock }
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>
