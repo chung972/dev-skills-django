@@ -4,4 +4,6 @@ from django.shortcuts import render
 
 
 def home(request):
-    pass
+    return render(request, 'home.html')
+    # like how render behaves in express, render in django also looks for
+    # files RELATIVE to the templates directory
