@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="navbar-fixed">
         <nav>
             <div class="blue nav-wrapper">
                 <ul>
@@ -27,7 +27,7 @@
                     {% if user.is_authenticated %}
                     <li>Welcome, {{ user.username }} |</li>
                     <li><a href="{% url 'add_skill' %}">Add Skill</a></li>
-                    <li><a href="">My Skills</a></li>
+                    <li><a href="{% url 'skills_index' %}">My Skills</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
@@ -39,7 +39,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
