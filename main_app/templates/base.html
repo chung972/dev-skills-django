@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Dev Skills</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -17,16 +19,14 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <!-- refactor these links to change dynamically based on authentication state -->
-                    <li>
-                        <a href="">Login</a>
-                    </li>
-                    <li>
-                        <a href="">Logout</a>
-                    </li>
-                    <li>
-                        <a href="">Register</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                    <li>Welcome {{ user.username }}</li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{%url 'signup' %}">Register</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
         </nav>
@@ -38,7 +38,13 @@
     </main>
 
     <footer>
-
+        Copyright &copy; DevSkills <span id="year"></span>
     </footer>
+
+    <script>
+        var year = new Date().getFullYear();
+        document.getElementById("year").textContent = year;
+    </script>
 </body>
+
 </html>
