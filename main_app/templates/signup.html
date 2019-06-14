@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .helptext, form > ul {
+        display: none;
+    }
+</style>
+
+<form method="POST">
+    <!-- we can leave the action="" off the form head tag -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Register" class="red btn">
+</form>
+
+{% endblock %}
